@@ -1,3 +1,5 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="online.store.core.StoreItems"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,12 +13,16 @@
 <hr>
 <h2 align="center">Browse Store</h2>
 <br>
-<a href="">Dental</a>
-<a href="">Shower</a>
-<a href="">HairCare</a>
-<a href="">SkinCare</a>
-<a href="">HealthCare</a>
-<a href="">Vitamins</a>
-<a href="">Cosmetic</a>
+<%
+// Get store items from request attributes
+StoreItems items = (StoreItems)request.getServletContext().getAttribute("storeItems");
+String[] itemCategories = items.getCategories();
+for(int i = 0; i < itemCategories.length; i++)
+{
+%>	
+<a href="" command = "viewItemsByCategory" category = "<%=itemCategories[i]%>"><%=itemCategories[i]%></a>	
+	
+<% } %>
+
 </body>
 </html>
