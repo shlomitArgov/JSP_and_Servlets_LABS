@@ -9,7 +9,8 @@
 </head>
 <body>
 <%
-String category = (String)request.getAttribute("category"); 
+String category = (String)request.getParameter("category"); 
+System.out.println("Category = " + category);
 StoreItems items = (StoreItems)request.getServletContext().getAttribute("storeItems");
 java.util.List<Item> itemsList = (java.util.List<Item>)items.getItemsByCategory(category);
 
