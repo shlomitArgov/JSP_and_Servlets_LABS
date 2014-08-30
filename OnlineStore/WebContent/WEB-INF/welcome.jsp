@@ -6,13 +6,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Online Store</title>
+	<title>Online Store</title>
 </head>
 <body>
-<h1 style="color: purple">Online Store</h1>
-<hr>
-<h2>Welcome ${username}!</h2>
-<br>
-Last visit: ${lastvisitAttr}
+	<h1 style="color: purple" align="center">Online Store</h1>
+	<hr>
+	<h2 align="center">Welcome ${username}!</h2>
+	<br>
+	<h3 align="center">Last visit: ${lastvisitAttr}</h3>
+	<br>
+	<div align="center">
+		<a href="Controller?command=browseStore">Browse Store</a>
+		<br>
+		<a href="Controller?command=startShopping">Start Shopping</a>
+	</div>
 </body>
 </html>
