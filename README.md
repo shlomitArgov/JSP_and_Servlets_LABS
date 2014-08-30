@@ -1,2 +1,3 @@
-JSP_and_Servlets_LABS
-=====================
+JSP and Servlets lab excercises
+===============================
+
