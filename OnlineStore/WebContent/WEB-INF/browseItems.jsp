@@ -29,11 +29,12 @@ java.util.List<Item> itemsList = (java.util.List<Item>)items.getItemsByCategory(
 	<tbody>
 	<%
 	for(int i = 0 ; i < itemsList.size() ; i++)
-	%>
+	{%>
 		<tr>
-			<td><%=itemsList.get(i).getName %></td>
-			<td><%=itemsList.get(i).getPrice %></td>
+			<td><%=itemsList.get(i).getName() %></td>
+			<td><%=itemsList.get(i).getPrice() %></td>
 		</tr>
+		<%} %>
 	</tbody>
 </table>
 </body>
