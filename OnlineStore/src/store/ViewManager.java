@@ -19,8 +19,8 @@ public class ViewManager extends HttpServlet {
 	private static final String BROWSE_STORE_COMMAND 			= "browseStore";
 	private static final String VIEW_ITEMS_BY_CATEGORY_COMMAND 	= "viewItemsByCategory";
     
-	private static final String BROWSE_STORE_PATH				= "WEB-INF/browseStore.jsp";
-	private static final String BROWSE_ITEMS_PATH				= "WEB-INF/browseItemsjsp";
+	private static final String BROWSE_STORE_PATH				= "/WEB-INF/browseStore.jsp";
+	private static final String BROWSE_ITEMS_PATH				= "/WEB-INF/browseItemsjsp";
 	
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
