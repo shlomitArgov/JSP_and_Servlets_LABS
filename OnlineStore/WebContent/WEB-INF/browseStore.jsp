@@ -19,8 +19,10 @@ String[] itemCategories = items.getCategories();
 for(int i = 0; i < itemCategories.length; i++)
 {
 %>	
-<a href="" command = "viewItemsByCategory" category = "<%=itemCategories[i]%>"><%=itemCategories[i]%></a>	
-	
+<div align="center">
+<a href="ViewManager?command=viewItemsByCategory&category=<%=itemCategories[i]%>"><%=itemCategories[i]%></a>	
+</div>	
+<br>
 <% } %>
 
 </body>
