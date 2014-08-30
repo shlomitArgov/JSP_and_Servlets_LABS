@@ -13,12 +13,15 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/ViewManager")
 public class ViewManager extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	private static final String COMMAND_PARAM = "command";
+	private static final long serialVersionUID 					= 1L;
+	private static final String COMMAND_PARAM 					= "command";
     
-	private static final Object BROWSE_STORE_COMMAND = "browseStore";
-	private static final Object VIEW_ITEMS_BY_CATEGORY_COMMAND = "viewItemsByCategory";
+	private static final String BROWSE_STORE_COMMAND 			= "browseStore";
+	private static final String VIEW_ITEMS_BY_CATEGORY_COMMAND 	= "viewItemsByCategory";
     
+	private static final String BROWSE_STORE_PATH				= "WEB-INF/browseStore.jsp";
+	private static final String BROWSE_ITEMS_PATH				= "WEB-INF/browseItemsjsp";
+	
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -31,11 +34,11 @@ public class ViewManager extends HttpServlet {
 			System.out.println(command);
 			if(command.equals(BROWSE_STORE_COMMAND))
 			{
-				nextPage = "/browseStore.jsp";
+				nextPage = BROWSE_STORE_PATH;
 			}
 			else if(command.equals(VIEW_ITEMS_BY_CATEGORY_COMMAND))
 			{
-				nextPage = "/browseItemsjsp";
+				nextPage = BROWSE_ITEMS_PATH;
 			}
 		}
 		if(nextPage != null)
