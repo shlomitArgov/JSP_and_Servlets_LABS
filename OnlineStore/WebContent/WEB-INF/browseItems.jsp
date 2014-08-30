@@ -19,15 +19,15 @@ java.util.List<Item> itemsList = (java.util.List<Item>)items.getItemsByCategory(
 <hr>
 <h2>Browses Items by Category</h2>
 <br>
-<h3>Category: <%=category%></h3>
-<table>
-	<thead>
+<h3 align="center">Category: <%=category%></h3>
+<table align="center" border="1" >
+	<thead  align="left" style="background:#DADBEB;">
 		<tr>
 			<th>Item</th>
 			<th>Price</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody align="left">
 	<%
 	for(int i = 0 ; i < itemsList.size() ; i++)
 	{%>
