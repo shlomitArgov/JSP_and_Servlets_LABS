@@ -84,7 +84,6 @@ public class LoginServlet extends HttpServlet {
 		// Add last visit date attribute to request
 		request.setAttribute(LAST_VISIT_ATTR, lastVisitDate);
 		// Forward the request to the next page
-//		String nextPage = this.getServletContext().getResource(WELCOME_JSP_PATH).getPath();
 		request.getServletContext().getRequestDispatcher(WELCOME_JSP_PATH).forward(request, response);
 	}
 }
