@@ -11,7 +11,7 @@
 <body>
 	<h1 style="color: purple" align="center">Online Store</h1>
 	<hr>
-	<h2 align="center">Welcome ${username}!</h2>
+	<h2 align="center">Hello ${username}!</h2>
 	<br>
 	<h3 align="center">Last visit: ${lastvisitAttr}</h3>
 	<br>
