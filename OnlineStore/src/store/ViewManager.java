@@ -16,8 +16,8 @@ public class ViewManager extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String COMMAND_PARAM = "command";
     
-	private static final String NEXT_PAGE_ATTR = "nextPage";
 	private static final Object BROWSE_STORE_COMMAND = "browseStore";
+	private static final Object VIEW_ITEMS_BY_CATEGORY_COMMAND = "viewItemsByCategory";
     
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
@@ -32,6 +32,10 @@ public class ViewManager extends HttpServlet {
 			if(command.equals(BROWSE_STORE_COMMAND))
 			{
 				nextPage = "/browseStore.jsp";
+			}
+			else if(command.equals(VIEW_ITEMS_BY_CATEGORY_COMMAND))
+			{
+				nextPage = "/browseItemsjsp";
 			}
 		}
 		if(nextPage != null)
