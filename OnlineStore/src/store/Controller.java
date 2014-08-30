@@ -23,15 +23,16 @@ import online.store.core.StoreItems;
 @WebServlet(urlPatterns = { "/Controller" }, initParams = { @WebInitParam(name = "email", value = "support@online.store") })
 public class Controller extends HttpServlet
 {
-	private static final String EMAIL_ATTR = "email";
-
-	private static final long serialVersionUID = 1L;
-	private static final String COMMAND_PARAM = "command";
+	private static final long serialVersionUID 			= 1L;
+	private static final String COMMAND_PARAM 			= "command";
 
 	private static final Object START_SHOPPING_COMMAND = "startShopping";
-	private static final Object CLEAR_COMMAND = "clear";
-
-	private static final String SHOPPING_CART_ATTR = "cart";
+	private static final Object CLEAR_COMMAND 			= "clear";
+	
+	private static final String SHOPPING_CART_ATTR 		= "cart";
+	private static final String EMAIL_ATTR 				= "email";
+	private static final String STORE_ITEMS_ATTR 		= "storeItems";
+	private static final String VIEW_MANAGER_PATH 		= "/ViewManager";
 
 	private String supportMail;
 	private int hitCounter;
@@ -41,9 +42,9 @@ public class Controller extends HttpServlet
 	public void init(ServletConfig config) throws ServletException
 	{
 		super.init(config);
-		store = new StoreItems();
-		supportMail = config.getInitParameter(EMAIL_ATTR);
 		System.out.println("Controller.init()");
+		this.getServletContext().setAttribute(STORE_ITEMS_ATTR, new StoreItems());
+		supportMail = config.getInitParameter(EMAIL_ATTR);
 		System.out.println("supportMail has been initialised with : '"
 				+ supportMail + "'");
 	}
@@ -72,10 +73,14 @@ public class Controller extends HttpServlet
 				handleClearCommand(request);
 			}
 		}
+		
+		// Forward the request to the ViewManager servlet
+		this.getServletContext().getRequestDispatcher(VIEW_MANAGER_PATH).forward(request, response);
 	}
 
 	private void handleStartShoppingCommand(HttpServletRequest request)
 	{
+		System.out.println("Controller.handleStartShoppingCommand()");
 		// Get HTTP session
 		HttpSession session = request.getSession(true);
 		// Check if the session is new or pre-existing
@@ -90,6 +95,7 @@ public class Controller extends HttpServlet
 
 	private void handleClearCommand(HttpServletRequest request)
 	{
+		System.out.println("Controller.handleClearCommand()");
 		HttpSession session = request.getSession(false);
 		ShoppingCart cart = (ShoppingCart) session.getAttribute(SHOPPING_CART_ATTR);
 		cart.clear();
